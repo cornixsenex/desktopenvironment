@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+amixer -D pulse set Master 1+ toggle
+
+
+AMUTE="$(pacmd list-sinks | awk 'NR==13{print $2}')"
+if [ $AMUTE == "yes" ]
+then
+	ATOKEN="M"
+else
+	ATOKE="$(amixer | awk 'NR==5{print $4}')"
+	ATOKEN="${ATOKE//[!0-9]/}"
+fi
+echo $ATOKEN > /home/qwe/dwmscripts/dwmaudio.txt
+
+/home/qwe/dwmscripts/dwmbarrefresh.sh
