@@ -95,28 +95,21 @@ unset use_color safe_term match_lhs sh
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
+#alias np='nano -w PKGBUILD'
 alias more=less
 alias ls='ls -ah --color=auto'
-alias P='cd; cd  phallusferrus.github.io'
-alias L='cd; cd Desktop/schoolin/Lingua-Latina'
 alias M='cd; cd Music'
-alias Git='cd; . Desktop/giterdone.txt'
 alias R='ranger'
-alias PP='cd; cd phallusferrus.github.io/blogs/works/python'
-alias C='cd; cd phallusferrus.github.io/blogs/works/cspace'
-alias CC='./gccc.sh'
 #alias rm='rm -i'
 alias IP='curl ifconfig.me'
-alias pigsay='C; ./pigsay.sh'
-alias PIG='pigsay'
-alias pigpic='C; ./pigpic.sh'
+#alias pigsay='C; ./pigsay.sh'
+#alias PIG='pigsay'
+#alias pigpic='C; ./pigpic.sh'
 alias ..='cd ..'
-alias Weather='curl v2d.wttr.in/Kalama,WA?m'
-alias V='cd ~/Videos'
-alias zathura='devour zathura'
-alias make='time make -j4'
-alias maek='time make'
+#alias V='cd ~/Videos'
+#alias zathura='devour zathura'
+#alias make='time make -j4'
+#alias maek='time make'
 
 
 xhost +local:root > /dev/null 2>&1
@@ -173,5 +166,5 @@ export VISUAL=vim;
 export EDITOR=vim;
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE='TOINFINITY'
+HISTFILESIZE='ANDBEYOND'
