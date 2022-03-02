@@ -3,8 +3,8 @@
 #include "layouts.c"
 
 /* appearance */
-static const unsigned int borderpx  = 0;        /* border pixel of windows */
-static const unsigned int gappx     = 0;        /* gaps between windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -28,9 +28,14 @@ static const char *colors[][3]      = {
 
 /* tagging */
 /*static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };*/
+//APPLE
 //static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+//ARCH
+//static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+
+//DESKTOP
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -73,15 +78,15 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *webcmd[] = { "firefox", NULL };
 static const char *clipcmd[] = { "clipmenu", NULL };
-static const char *alsamute[] = {"alsamute", NULL };
+static const char *dwmmute[] = {"dwmmute", NULL };
 static const char *alsaup[] = {"alsaup", NULL };
 static const char *alsadown[] = {"alsadown", NULL };
-static const char *brightdown[] = {"brightdown", NULL };
-static const char *brightup[] = {"brightup", NULL };
-static const char *keybdown[] = {"keybdown", NULL };
-static const char *keybup[] = {"keybup", NULL };
+//static const char *brightdown[] = {"brightdown", NULL };
+//static const char *brightup[] = {"brightup", NULL };
+//static const char *keybdown[] = {"keybdown", NULL };
+//static const char *keybup[] = {"keybup", NULL };
 static const char *smartshot[] = {"smartshot", NULL };
-static const char *dwmsuspend[] = {"dwmsuspend", NULL };
+//static const char *dwmsuspend[] = {"dwmsuspend", NULL };
 
 
 
@@ -90,18 +95,18 @@ static const char *dwmsuspend[] = {"dwmsuspend", NULL };
 #include "shiftview.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,						XK_w,	   spawn,		   {.v = webcmd } },
+	{ MODKEY,                       XK_d,         spawn,       {.v = dmenucmd } },
+	{ MODKEY,             			XK_Return,    spawn,       {.v = termcmd } },
+	{ MODKEY,						XK_w,	      spawn,	   {.v = webcmd } },
 	{ MODKEY, 						XK_semicolon, spawn,       {.v = clipcmd } },
-	{ 0,							0x1008ff12, spawn,         {.v = alsamute } },
-	{ 0,							0x1008ff11, spawn,         {.v = alsadown } },
-	{ 0,							0x1008ff13, spawn,    		{.v = alsaup } },
-	{ 0,							0x1008ff03, spawn,	   		{.v = brightdown } },
-	{ 0,							0x1008ff02,	spawn,     		{.v = brightup } },
-	{ 0,							0x1008ff05,	spawn,   	   {.v = keybup } },
-	{ 0,							0x1008ff06,	spawn,         {.v = keybdown } },
-	{ MODKEY|ShiftMask,				0x1008ff2c,	spawn,         {.v = dwmsuspend } },
+	{ 0,							0xffc6,     spawn,       {.v = dwmmute } },
+	{ 0,							0x1008ff11,   spawn,       {.v = alsadown } },
+	{ 0,							0x1008ff13,   spawn,       {.v = alsaup } },
+	//{ 0,							0x1008ff03,   spawn,	   {.v = brightdown } },
+	//{ 0,							0x1008ff02,	  spawn,       {.v = brightup } },
+	//{ 0,							0x1008ff05,	  spawn,   	   {.v = keybup } },
+	//{ 0,							0x1008ff06,	  spawn,       {.v = keybdown } },
+	//{ MODKEY|ShiftMask,			0x1008ff2c,	  spawn,       {.v = dwmsuspend } },
 	{ MODKEY|ShiftMask,				XK_s,		spawn,         {.v = smartshot } },
 	{ MODKEY,                     	XK_f,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
