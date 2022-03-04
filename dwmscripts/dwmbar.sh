@@ -24,11 +24,14 @@
 #DATE
 
 
+IDK="???"
 
 
 while true; do
+	echo "$IDK" > /home/qwe/code/desktopenvironment/dwmscripts/dwmweather.txt
+	echo "$IDK" > /home/qwe/code/desktopenvironment/dwmscripts/dwmupdates.txt
 	dwmweather > /home/qwe/code/desktopenvironment/dwmscripts/dwmweather.txt
-	dwmupdates > /home/qwe/code/desktopenvrionment/dwmscripts/dwmupdates.txt
+	dwmupdate > /home/qwe/code/desktopenvironment/dwmscripts/dwmupdates.txt
 
 	sleep 900s
 done &
@@ -45,8 +48,9 @@ while true; do
 	TEMP=$(dwmtemp)
 	RAM=$(dwmram)
 	DISK=$(< /home/qwe/code/desktopenvironment/dwmscripts/dwmdisk.txt)
+	AUDIO=$(< /home/qwe/code/desktopenvironment/dwmscripts/dwmalsa.txt)
 	DATE=$(date +%a\ %b%d\ %R)
-	xsetroot -name " $DISK | $RAM | $TEMP | $UPDATES | $WEATHER | $DATE"
+	xsetroot -name " $DISK | $RAM | $TEMP | $UPDATES | $WEATHER | $AUDIO | $DATE"
 	sleep 2s
 done &
 

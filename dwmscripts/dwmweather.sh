@@ -7,20 +7,28 @@
 rtnow="$(date | awk '{print $4}')"
 tnow="${rtnow//[!0-9]/}"
  
-rsset="$(curl -s wttr.in?format=%d)"
+rsset="$(curl -s wttr.in/94133?format=%d)"
 sset="${rsset//[!0-9]/}"
 
-rsriz="$(curl -s wttr.in?format=%D)"
+rsriz="$(curl -s wttr.in/94133?format=%D)"
 sriz="${rsriz//[!0-9]/}"
 
-rwicon="$(curl -s wttr.in?format=%C)"
+rwicon="$(curl -s wttr.in/94133?format=%C)"
 wicon="${rwicon//[[:blank:]]/}"
+#Weather Types
 Clear="Clear"
 Sunny="Sunny"
+Fog="Fog"
+Thunderstorminvicinity="Thunderstorminvicinity"
 
 if [ $tnow -gt $sriz ] && [ $tnow -lt $sset ]
 then
-	icon="$(curl wttr.in?format=%c)"
+	if [ $wicon == $Fog ] || [ $wicon == $Thunderstorminvicinity ]
+	then
+		icon=""
+	else
+		icon="$(curl wttr.in?format=%c)"
+	fi
 elif [ $wicon == $Clear ] || [ $wicon == $Sunny ]
 then
 	MPHAZ="$(curl wttr.in?format=%M)"

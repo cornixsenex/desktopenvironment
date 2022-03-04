@@ -8,7 +8,7 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "DeJaVu Sans Mono:size=9", "Font Awesome:size=9", "Symbola:size=9" };
+static const char *fonts[]          = { "DeJaVu Sans Mono:size=9", "Font Awesome:size=9", "NotoColorEmoji:size=9" };
 static const char dmenufont[]       = "DeJaVu Sans Mono:size=9";
 /* Background Color */
 static const char col_gray1[]       = "#232629";
@@ -78,9 +78,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *webcmd[] = { "firefox", NULL };
 static const char *clipcmd[] = { "clipmenu", NULL };
-static const char *dwmmute[] = {"dwmmute", NULL };
-static const char *alsaup[] = {"alsaup", NULL };
-static const char *alsadown[] = {"alsadown", NULL };
+static const char *dwmalsamute[] = {"dwmalsamute", NULL };
+static const char *dwmalsaup[] = {"dwmalsaup", NULL };
+static const char *dwmalsadown[] = {"dwmalsadown", NULL };
 //static const char *brightdown[] = {"brightdown", NULL };
 //static const char *brightup[] = {"brightup", NULL };
 //static const char *keybdown[] = {"keybdown", NULL };
@@ -99,9 +99,9 @@ static Key keys[] = {
 	{ MODKEY,             			XK_Return,    spawn,       {.v = termcmd } },
 	{ MODKEY,						XK_w,	      spawn,	   {.v = webcmd } },
 	{ MODKEY, 						XK_semicolon, spawn,       {.v = clipcmd } },
-	{ 0,							0xffc6,     spawn,       {.v = dwmmute } },
-	{ 0,							0x1008ff11,   spawn,       {.v = alsadown } },
-	{ 0,							0x1008ff13,   spawn,       {.v = alsaup } },
+	{ 0,							0xffc6,       spawn,       {.v = dwmalsamute } },
+	{ 0,							0xffc7,       spawn,       {.v = dwmalsadown } },
+	{ 0,							0xffc8,       spawn,       {.v = dwmalsaup } },
 	//{ 0,							0x1008ff03,   spawn,	   {.v = brightdown } },
 	//{ 0,							0x1008ff02,	  spawn,       {.v = brightup } },
 	//{ 0,							0x1008ff05,	  spawn,   	   {.v = keybup } },
