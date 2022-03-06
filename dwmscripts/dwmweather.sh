@@ -18,12 +18,17 @@ wicon="${rwicon//[[:blank:]]/}"
 #Weather Types
 Clear="Clear"
 Sunny="Sunny"
+
 Fog="Fog"
+Overcast="Overcast"
+
 Thunderstorminvicinity="Thunderstorminvicinity"
 
 if [ $tnow -gt $sriz ] && [ $tnow -lt $sset ]
 then
-	if [ $wicon == $Fog ] || [ $wicon == $Thunderstorminvicinity ]
+	if [ "$wicon" = "$Fog" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" ]
+#	if [ $wicon == $Fog ] || [ $wicon == $Thunderstorminvicinity ] || [$wicon == $Overcast ]
+	
 	then
 		icon=""
 	else
