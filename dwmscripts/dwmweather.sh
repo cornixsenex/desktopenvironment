@@ -7,13 +7,13 @@
 rtnow="$(date | awk '{print $4}')"
 tnow="${rtnow//[!0-9]/}"
  
-rsset="$(curl -s wttr.in/94133?format=%d)"
+rsset="$(curl wttr.in?format=%d)"
 sset="${rsset//[!0-9]/}"
 
-rsriz="$(curl -s wttr.in/94133?format=%D)"
+rsriz="$(curl wttr.in?format=%D)"
 sriz="${rsriz//[!0-9]/}"
 
-rwicon="$(curl -s wttr.in/94133?format=%C)"
+rwicon="$(curl wttr.in?format=%C)"
 wicon="${rwicon//[[:blank:]]/}"
 #Weather Types
 Clear="Clear"
@@ -26,11 +26,12 @@ Thunderstorminvicinity="Thunderstorminvicinity"
 
 if [ $tnow -gt $sriz ] && [ $tnow -lt $sset ]
 then
-	if [ "$wicon" = "$Fog" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" ]
-#	if [ $wicon == $Fog ] || [ $wicon == $Thunderstorminvicinity ] || [$wicon == $Overcast ]
-	
+	if [ "$wicon" = "$Fog" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" ]	
 	then
 		icon=""
+	elif [ "$wicon" = "$Sunny" -o "$wicon" = "$Clear" ]
+	then
+		icon=""
 	else
 		icon="$(curl wttr.in?format=%c)"
 	fi
@@ -74,20 +75,34 @@ else
 	icon=""
 fi
 
-rctemp="$(curl -s 'wttr.in?m&format=%t')"
-rftemp="$(curl -s 'wttr.in?format=%t')"
+##Temperature - I'm using darksky to get the temperature because wttr.in has some issue rn...I opened an issue on their github and if/when it gets fixed I'll go back to using it but for now I need to know the temperature outside
+
+curl https://darksky.net/forecast/37.7794,-122.4184/si10/en > darksky.html
+
+EX="$(cat darksky.html | grep 'summary swap')"
+
+temp="$(echo $EX | digitextractor)"
+
+rm darksky.html
 
 
-freeze="31"
-ctemp="${rctemp//[!0-9]/}"
-ftemp="${rftemp//[!0-9]/}"
 
-if [ $ftemp -lt $freeze ]
-then
-	temp="- $ctemp"
-else
-	temp="$ctemp"
-fi
+
+
+#rctemp="$(curl -s 'wttr.in?m&format=%t')"
+#rftemp="$(curl -s 'wttr.in?format=%t')"
+#
+#
+#freeze="31"
+#ctemp="${rctemp//[!0-9]/}"
+#ftemp="${rftemp//[!0-9]/}"
+#
+#if [ $ftemp -lt $freeze ]
+#then
+#	temp="- $ctemp"
+#else
+#	temp="$ctemp"
+#fi
 
 printf " %s%s \\n" "$icon " "$temp"
 
