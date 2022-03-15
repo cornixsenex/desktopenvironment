@@ -43,8 +43,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-/*	{ "gimp",     NULL,       NULL,       1 << 7,       1,           -1 },*/
+	{ "gimp",     NULL,       NULL,       1 << 7,       0,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "mgba-qt",  NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */

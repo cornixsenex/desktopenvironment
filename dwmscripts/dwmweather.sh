@@ -21,12 +21,13 @@ Sunny="Sunny"
 
 Fog="Fog"
 Overcast="Overcast"
+Mist="Mist"
 
 Thunderstorminvicinity="Thunderstorminvicinity"
 
 if [ $tnow -gt $sriz ] && [ $tnow -lt $sset ]
 then
-	if [ "$wicon" = "$Fog" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" ]	
+	if [ "$wicon" = "$Fog" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" -o "$wicon" = "$Mist" ]	
 	then
 		icon=""
 	elif [ "$wicon" = "$Sunny" -o "$wicon" = "$Clear" ]
