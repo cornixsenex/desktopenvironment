@@ -23,6 +23,11 @@ Fog="Fog"
 Overcast="Overcast"
 Mist="Mist"
 
+
+fmoon1=""
+fmoon2=""
+fmoon3=""
+
 Thunderstorminvicinity="Thunderstorminvicinity"
 
 if [ $tnow -gt $sriz ] && [ $tnow -lt $sset ]
@@ -56,7 +61,7 @@ then
 		icon="🌑"
 	elif [ $MPHAZ == 14 ]
 	then
-		icon="🌚"
+		icon=""
 	elif [ $MPHAZ -lt 16 ]
 	then
 		icon="🌑"

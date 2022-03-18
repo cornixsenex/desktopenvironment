@@ -8,21 +8,23 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "DeJaVu Sans Mono:size=9", "Font Awesome:size=9", "NotoColorEmoji:size=9" };
+static const char *fonts[]          = { "DeJaVu Sans Mono:size=9", "Font Awesome:size=9", "Noto Color Emoji:pixelsize=9:antialias=true:autohint=true" };
 static const char dmenufont[]       = "DeJaVu Sans Mono:size=9";
 /* Background Color */
 static const char col_gray1[]       = "#232629";
 /* Inactive Window Border */
-static const char col_gray2[]       = "#1e4a81";
+static const char col_gray2[]       = "#586e75";
 /* Font Color */
 static const char col_gray3[]       = "#f8f8f2";
 /* Current Tag and Windo Font Color */
 static const char col_gray4[]       = "#f8f8f2";
 /* Top Bar Color */
 static const char col_cyan[]        = "#1e4a81";
+/* Focus Window Border Color */
+static const char col_focus[]		="#268bd2";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { col_gray3, col_gray1, col_cyan },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
@@ -145,6 +147,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,						XK_Left,   shiftview,	   {.i = -1 } },
 	{ MODKEY,						XK_Right,  shiftview,	   {.i = +1 } },
+	{ MODKEY,                       0x2d,  setgaps,        {.i = -1 } },
+	{ MODKEY,                       0x3d,  setgaps,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             0x3d,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
