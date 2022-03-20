@@ -46,8 +46,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "gimp",     NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "mgba-qt",  NULL,       NULL,       0,            1,           -1 },
+	{ "firefox",  NULL,       NULL,       2,            0,           -1 },
+	{ "mgba-qt",  NULL,       NULL,       6,            0,           -1 },
 };
 
 /* layout(s) */
@@ -88,8 +88,9 @@ static const char *dwmalsadown[] = {"dwmalsadown", NULL };
 //static const char *brightup[] = {"brightup", NULL };
 //static const char *keybdown[] = {"keybdown", NULL };
 //static const char *keybup[] = {"keybup", NULL };
-static const char *smartshot[] = {"smartshot", NULL };
-//static const char *dwmsuspend[] = {"dwmsuspend", NULL };
+static const char *dwmscrot[] = {"dwmscrot", NULL };
+static const char *dwmslock[] = {"slock", NULL};
+static const char *dwmsuspend[] = {"dwmsuspend", NULL };
 
 
 
@@ -109,8 +110,12 @@ static Key keys[] = {
 	//{ 0,							0x1008ff02,	  spawn,       {.v = brightup } },
 	//{ 0,							0x1008ff05,	  spawn,   	   {.v = keybup } },
 	//{ 0,							0x1008ff06,	  spawn,       {.v = keybdown } },
-	//{ MODKEY|ShiftMask,			0x1008ff2c,	  spawn,       {.v = dwmsuspend } },
-	{ MODKEY|ShiftMask,				XK_s,		spawn,         {.v = smartshot } },
+	{ MODKEY|ShiftMask,				XK_s,		  spawn,       {.v = dwmscrot } },
+	{ MODKEY|ControlMask|Mod1Mask,  XK_l,         spawn,       {.v = dwmslock } },
+	{ MODKEY|ControlMask|Mod1Mask,  XK_s,         spawn,       {.v = dwmsuspend} },
+
+
+
 	{ MODKEY,                     	XK_f,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
