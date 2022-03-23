@@ -46,7 +46,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "gimp",     NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "firefox",  NULL,       NULL,       2,            0,           -1 },
+	{ "firefox",  NULL,       NULL,       2,            1,           -1 },
 	{ "mgba-qt",  NULL,       NULL,       6,            0,           -1 },
 };
 
@@ -91,7 +91,7 @@ static const char *dwmalsadown[] = {"dwmalsadown", NULL };
 static const char *dwmscrot[] = {"dwmscrot", NULL };
 static const char *dwmslock[] = {"slock", NULL};
 static const char *dwmsuspend[] = {"dwmsuspend", NULL };
-
+static const char *dwmpoweroff[] = {"dwmpoweroff", NULL };
 
 
 
@@ -113,6 +113,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,				XK_s,		  spawn,       {.v = dwmscrot } },
 	{ MODKEY|ControlMask|Mod1Mask,  XK_l,         spawn,       {.v = dwmslock } },
 	{ MODKEY|ControlMask|Mod1Mask,  XK_s,         spawn,       {.v = dwmsuspend} },
+	{ MODKEY|ControlMask|Mod1Mask,  XK_Escape,    spawn,       {.v = dwmpoweroff} },
 
 
 
@@ -127,9 +128,9 @@ static Key keys[] = {
 	{ Mod1Mask|ShiftMask,           XK_l,      setmfact,       {.f = +0.0025} },
 	
 
-    { Mod1Mask|ShiftMask,             XK_j,      setcfact,       {.f = +0.1} },
-    { Mod1Mask|ShiftMask,             XK_k,      setcfact,       {.f = -0.1} },
-    { Mod1Mask|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+    { Mod1Mask|ShiftMask,           XK_j,      setcfact,       {.f = +0.1} },
+    { Mod1Mask|ShiftMask,           XK_k,      setcfact,       {.f = -0.1} },
+    { Mod1Mask|ShiftMask,           XK_o,      setcfact,       {.f =  0.00} },
 
 
 
