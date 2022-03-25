@@ -10,7 +10,7 @@ tnow="${rtnow//[!0-9]/}"
 rsset="$(curl wttr.in/94133?format=%d)"
 sset="${rsset//[!0-9]/}"
 
-rsriz="$(curl wttr.in?/94133format=%D)"
+rsriz="$(curl wttr.in/94133?format=%D)"
 sriz="${rsriz//[!0-9]/}"
 
 rwicon="$(curl wttr.in/94133?format=%C)"
