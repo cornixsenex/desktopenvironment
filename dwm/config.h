@@ -44,10 +44,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
+
+//IDK how to make mgba-qt work, 0 is NOT floating right now firefox launches auto on tag 2 in tiled mode but mgba-qt does not work idk why
+
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "gimp",     NULL,       NULL,       1 << 7,       0,           -1 },
-	{ "firefox",  NULL,       NULL,       2,            1,           -1 },
-	{ "mgba-qt",  NULL,       NULL,       6,            0,           -1 },
+	{ "firefox",  NULL,       NULL,       2,            0,           -1 },
+	{ "mgba-qt",  NULL,       NULL,       6,            1,           -1 },
 };
 
 /* layout(s) */
