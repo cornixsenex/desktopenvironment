@@ -144,3 +144,11 @@ set ttymouse=sgr
 set number
 set tabstop=4
 set shiftwidth=4
+
+au BufRead,BufNewFile *.pory set filetype=pory
+
+au FileType pory setlocal cindent
+
+
+
+
