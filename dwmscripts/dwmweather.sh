@@ -23,7 +23,9 @@ Fog="Fog"
 Overcast="Overcast"
 Mist="Mist"
 Haze="Haze"
+Smoke="Smoke"
 Shallowfog="Shallowfog"
+SmokeIcon=" "
 fmoon1=""
 fmoon2=""
 fmoon3=""
@@ -38,6 +40,9 @@ then
 	elif [ "$wicon" = "$Sunny" -o "$wicon" = "$Clear" ]
 	then
 		icon=""
+	elif [ $wicon == $Smoke ]
+	then
+		icon=""
 	else
 		icon="$(curl wttr.in/94133?format=%c)"
 	fi
