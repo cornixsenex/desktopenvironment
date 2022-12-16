@@ -25,6 +25,7 @@ Mist="Mist"
 Haze="Haze"
 Smoke="Smoke"
 Shallowfog="Shallowfog"
+Freezingfog="Freezingfog"
 SmokeIcon=" "
 fmoon1=""
 fmoon2=""
@@ -34,7 +35,7 @@ Thunderstorminvicinity="Thunderstorminvicinity"
 
 if [ $tnow -gt $sriz ] && [ $tnow -lt $sset ]
 then
-	if [ "$wicon" = "$Fog" -o "$wicon" = "$Haze" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" -o "$wicon" = "$Mist" -o "$wicon" = "$Shallowfog" ]	
+	if [ "$wicon" = "$Fog" -o "$wicon" = "$Haze" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" -o "$wicon" = "$Mist" -o "$wicon" = "$Shallowfog" -o "$wicon" = "$Freezingfog" ]	
 	then
 		icon=""
 	elif [ "$wicon" = "$Sunny" -o "$wicon" = "$Clear" ]
