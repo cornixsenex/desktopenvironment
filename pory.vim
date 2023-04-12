@@ -20,7 +20,8 @@ syn keyword poryMapscripts mapscripts
 syn keyword poryRaw raw
 syn keyword poryConst const
 syn keyword porySwitch switch
-
+syn keyword poryMart mart
+syn keyword poryMsgbox msgbox
 "syn keyword poryConditional if elif else switch while
 "syn keyword poryFlagVars flag var defeated
 
@@ -46,7 +47,9 @@ hi def link poryMovement   Structure
 hi def link poryMapscripts Statement
 hi def link poryRaw        Constant
 hi def link poryConst      Statement
-hi def link porySwitch      Statement
+hi def link porySwitch     Statement
+hi def link poryMart       Constant
+hi def link poryMsgbox     Special
 "hi def link poryConditional Conditional
 "hi def link poryFlagVars    number
 "hi def link poryString      String
