@@ -48,7 +48,7 @@ while true; do
 	TEMP=$(dwmtemp)
 	RAM=$(dwmram)
 	DISK=$(< /home/qwe/code/desktopenvironment/dwmscripts/dwmdisk.txt)
-	AUDIO=$(< /home/qwe/code/desktopenvironment/dwmscripts/dwmalsa.txt)
+	AUDIO=$(< /home/qwe/code/desktopenvironment/dwmscripts/dwmaudio.txt)
 	DATE=$(date +%a\ %b%d\ %R)
 	xsetroot -name " $DISK | $RAM | $TEMP | $UPDATES | $WEATHER | $AUDIO | $DATE"
 	sleep 2s
