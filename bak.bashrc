@@ -107,14 +107,18 @@ alias IP='curl ifconfig.me'
 alias ..='cd ..'
 alias V='cd ~/Media/Videos'
 #alias zathura='devour zathura'
-#alias make='time make -j4'
-#alias maek='time make'
+alias make='time make -j12'
+alias maek='time make -j12'
+alias MK='time make -j12'
+alias Make='time make -j12'
 alias neofetch='neofetch --source /home/qwe/code/desktopenvironment/charizard_ascii.txt'
 alias Key="setxkbmap -option altwin:swap_alt_win; setxkbmap -option 'ctrl:rctrl_ralt'"
 alias Update="sudo pacman -Syu"
-alias Randverse="cd ~/Media/docs/codes/Python/rwerds; python randverse.py; cd"
+alias Randverse="cd ~/Media/docs/codes/python_space/rwerds; python randverse.py; cd"
 alias Bat="cat /sys/class/power_supply/hid-c0\:95\:6d\:02\:8e\:b6-battery/capacity"
 alias Gitpass="cat ~/Media/docs/gitpass.txt"
+alias PE='cd /home/qwe/Media/docs/codes/decomps/pokeevee'
+alias C='cd /home/qwe/Media/docs/codes'
 
 xhost +local:root > /dev/null 2>&1
 

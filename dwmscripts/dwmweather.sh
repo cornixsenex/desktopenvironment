@@ -36,22 +36,22 @@ fmoon3=""
 Thunderstorminvicinity="Thunderstorminvicinity"
 
 if [ $tnow -gt $sriz ] && [ $tnow -lt $sset ]
+###then
+###	if [ "$wicon" = "$Fog" -o "$wicon" = "$Haze" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" -o "$wicon" = "$Mist" -o "$wicon" = "$Shallowfog" -o "$wicon" = "$Cloudy" -o "$wicon" = "$Freezingfog" -o "$wicon" = "$Thunderyoutbreakspossible" ]	
+###	then
+###		icon=""
+###	elif [ "$wicon" = "$Sunny" -o "$wicon" = "$Clear" ]
+###	then
+###		icon=""
+###	elif [ $wicon == $Smoke ]
+###	then
+###		icon=""
+###	else
+###		icon="$(curl wttr.in/94133?format=%c)"
+###	fi
+###elif [ $wicon == $Clear ] || [ $wicon == $Sunny ]
 then
-	if [ "$wicon" = "$Fog" -o "$wicon" = "$Haze" -o "$wicon" = "$Overcast" -o "$wicon" = "$Thunderstorminvicinity" -o "$wicon" = "$Mist" -o "$wicon" = "$Shallowfog" -o "$wicon" = "$Cloudy" -o "$wicon" = "$Freezingfog" -o "$wicon" = "$Thunderyoutbreakspossible" ]	
-	then
-		icon=""
-	elif [ "$wicon" = "$Sunny" -o "$wicon" = "$Clear" ]
-	then
-		icon=""
-	elif [ $wicon == $Smoke ]
-	then
-		icon=""
-	else
-		icon="$(curl wttr.in/94133?format=%c)"
-	fi
-elif [ $wicon == $Clear ] || [ $wicon == $Sunny ]
-then
-	MPHAZ="$(curl wttr.in/94133?format=%M)"
+	MPHAZ="$(curl wttr.in/94102?format=%M)"
 	if [ $MPHAZ -lt 2 ]
 	then
 		icon="🌕"
@@ -79,7 +79,7 @@ then
 	elif [ $MPHAZ -lt 23 ]
 	then	
 		icon="🌓"
-	elif [ $MPHAZ < 26 ]
+	elif [ $MPHAZ -lt 26 ]
 	then
 		icon="🌔"
 	else
