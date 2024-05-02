@@ -1,3 +1,10 @@
+
+" HELLO NOTE :D
+" cp this file to .vim/syntax/pory.vim
+" make the directory if it does not exist
+" double check you have the correct stuff added to .vimrc as well
+" feel free to exapnd this if you'd like it's not comprehensive 
+
 " Vim syntax file
 " Language: Poryscript
 " Maintainer: cornixsenex
