@@ -37,7 +37,8 @@ static const char *colors[][3]      = {
 //static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 //DESKTOP
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+//static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; Firefox Logo is broken in bar and IDK why
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" }; 
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -84,9 +85,9 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *webcmd[] = { "firefox", NULL };
 static const char *clipcmd[] = { "clipmenu", NULL };
-static const char *dwmalsamute[] = {"dwmalsamute", NULL };
-static const char *dwmalsaup[] = {"dwmalsaup", NULL };
-static const char *dwmalsadown[] = {"dwmalsadown", NULL };
+static const char *dwmmute[] = {"dwmmute", NULL };
+static const char *dwmvolup[] = {"dwmvolup", NULL };
+static const char *dwmvoldown[] = {"dwmvoldown", NULL };
 //static const char *brightdown[] = {"brightdown", NULL };
 //static const char *brightup[] = {"brightup", NULL };
 //static const char *keybdown[] = {"keybdown", NULL };
@@ -106,9 +107,9 @@ static Key keys[] = {
 	{ MODKEY,             			XK_Return,    spawn,       {.v = termcmd } },
 	{ MODKEY,						XK_w,	      spawn,	   {.v = webcmd } },
 	{ MODKEY, 						XK_semicolon, spawn,       {.v = clipcmd } },
-	{ 0,							0xffc6,       spawn,       {.v = dwmalsamute } },
-	{ 0,							0xffc7,       spawn,       {.v = dwmalsadown } },
-	{ 0,							0xffc8,       spawn,       {.v = dwmalsaup } },
+	{ 0,							0xffc6,       spawn,       {.v = dwmmute } },
+	{ 0,							0xffc7,       spawn,       {.v = dwmvoldown } },
+	{ 0,							0xffc8,       spawn,       {.v = dwmvolup } },
 	//{ 0,							0x1008ff03,   spawn,	   {.v = brightdown } },
 	//{ 0,							0x1008ff02,	  spawn,       {.v = brightup } },
 	//{ 0,							0x1008ff05,	  spawn,   	   {.v = keybup } },
