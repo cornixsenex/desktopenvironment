@@ -11,15 +11,15 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "DeJaVu Sans Mono:size=9", "Font Awesome:size=9", "Noto Color Emoji:pixelsize=9:antialias=true:autohint=true" };
 static const char dmenufont[]       = "DeJaVu Sans Mono:size=9";
 /* Background Color */
-static const char col_gray1[]       = "#232629";
+static const char col_gray1[]       = "#1d2021";
 /* Inactive Window Border */
 static const char col_gray2[]       = "#586e75";
 /* Font Color */
-static const char col_gray3[]       = "#f8f8f2";
+static const char col_gray3[]       = "#ebdbb2";
 /* Current Tag and Windo Font Color */
-static const char col_gray4[]       = "#f8f8f2";
+static const char col_gray4[]       = "#ebdbb2";
 /* Top Bar Color */
-static const char col_cyan[]        = "#1e4a81";
+static const char col_cyan[]        = "#458588";
 /* Focus Window Border Color */
 static const char col_focus[]		="#268bd2";
 static const char *colors[][3]      = {
@@ -82,7 +82,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *webcmd[] = { "firefox", NULL };
 static const char *clipcmd[] = { "clipmenu", NULL };
 static const char *dwmmute[] = {"dwmmute", NULL };
@@ -121,7 +121,7 @@ static Key keys[] = {
 
 
 
-	{ MODKEY,                     	XK_f,      togglebar,      {0} },
+	{ MODKEY,                     	XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
@@ -144,7 +144,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,  			    		XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ Mod1Mask,                     XK_f,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
