@@ -99,7 +99,7 @@ alias free='free -m'                      # show sizes in MB
 alias more=less
 alias ls='ls -ah --color=auto'
 alias M='cd; cd /home/qwe/Media/Music'
-alias R='ranger'
+alias R='lf'
 #alias rm='rm -i'
 alias IP='curl ifconfig.me'
 #alias PIG='pigsay'
@@ -107,18 +107,31 @@ alias IP='curl ifconfig.me'
 alias ..='cd ..'
 alias V='cd ~/Media/Videos'
 #alias zathura='devour zathura'
-alias make='time make -j12'
-alias maek='time make -j12'
-alias MK='time make -j12'
-alias Make='time make -j12'
-alias neofetch='neofetch --source /home/qwe/code/desktopenvironment/charizard_ascii.txt'
+alias make='time make -j$(nproc)'
+alias maek='time make -j$(nproc)'
+alias MK='time make -j$(nproc)'
+alias Make='time make -j(nproc)'
+alias neofetch='fastfetch --file /home/qwe/code/desktopenvironment/charizard_ascii.txt'
 alias Key="setxkbmap -option altwin:swap_alt_win; setxkbmap -option 'ctrl:rctrl_ralt'"
 alias Update="sudo pacman -Syu"
-alias Randverse="cd ~/Media/docs/codes/python_space/rwerds; python randverse.py; cd"
 alias Bat="cat /sys/class/power_supply/hid-c0\:95\:6d\:02\:8e\:b6-battery/capacity"
-alias Gitpass="cat ~/Media/docs/gitpass.txt"
-alias PE='cd /home/qwe/Media/docs/codes/decomps/pokeevee'
+alias BatC="cat /sys/class/power_supply/ps-controller-battery-a4\:ae\:11\:e3\:37\:d7/capacity"
+alias Gitpass="cat ~/Media/docs/gitpass_cornixsenex.txt"
+alias GitpassREX="cat ~/Media/docs/gitpass_cornixrexdev.txt"
+alias PE='cd /home/qwe/code/pokeevee'
 alias C='cd /home/qwe/Media/docs/codes'
+alias BackUp='rsync -av --delete /home/qwe/Media/ /home/qwe/Backup/'
+alias Gale='wine /home/qwe/Media/downloads/GraphicsGale/gale.exe'
+alias G='cd /home/qwe/code/griddy'
+alias sxiv='devour sxiv'
+alias vim='nvim'
+alias dccode='oathtool --totp -b "$(cat /home/qwe/Media/docs/discord_secret.txt)"'
+alias RE="cd /home/qwe/code/rex"
+alias gitradar='git log --pretty=format:"%C(yellow)%h %C(cyan)%an %C(green)%cr %C(reset): %s" --shortstat'
+alias uvim='nvim -u NONE'
+alias grep='grep --color=always'
+alias diff='diff --color=auto -u'
+alias surfai='devour surf http://127.0.0.1:44109'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -133,9 +146,6 @@ shopt -s checkwinsize
 shopt -s expand_aliases
 
 # export QT_SELECT=4
-
-# Enable history appending instead of overwriting.  #139609
-shopt -s histappend
 
 #
 # # ex - archive extractor
@@ -165,14 +175,88 @@ ex ()
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 
-export PS1="\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+export PS1="\[\e[36m\][\[\e[m\]\[\e[36m\]\W\[\e[m\]\[\e[36m\]]\[\e[m\]\[\e[33m\]\$(parse_git_branch)\[\e[m\]\[\e[32m\]\\$\[\e[m\] "
 
 # colors bruh
 export LS_COLORS="di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=01;05;37;41:mi=01;05;37;41:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.pdf=00;32:*.ps=00;32:*.txt=00;37:*.patch=00;32:*.diff=00;32:*.log=00;32:*.tex=00;32:*.doc=00;32:*.py=00;32:*.html=00;33:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:*.js=00;35:*.c=00;33:*.opus=00;36"
 
-export VISUAL=vim;
-export EDITOR=vim;
+export VISUAL=nvim;
+export EDITOR=nvim;
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE='TOINFINITY'
-HISTFILESIZE='ANDBEYOND'
+# 261024 - Try just removing these idk history seems capped at like 3K still
+# NOTE2 - I just removed a line from .bash_profile which capped hist size to 2500 ugh
+#HISTSIZE=100000
+#HISTFILESIZE=100000
+
+# Enable history appending instead of overwriting.  #139609
+shopt -s histappend
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/qwe/.cache/lm-studio/bin"
+
+# AI helper funcs
+#
+
+AI_gemma4_12B_Uncensored() {
+  cd ~/code/llama.cpp || return 1
+  ./build/bin/llama-server \
+  -m ~/models/gemma4-12B-QAT-Uncensored-hauhauCS-Balanced-Q4_K_M.gguf \
+  -c 131072 \
+  --parallel 1 \
+  -fit off \
+  -b 2048 \
+  -ub 2048 \
+  -t 8 \
+  -n -1 \
+  -fa on \
+  -ngl 99 \
+  --device Vulkan0 \
+  --host 127.0.0.1 \
+  --port 44109 "$@"
+}
+
+AI_gemma4_26B_Q4() {
+    cd ~/code/llama.cpp || return 1
+    ./build/bin/llama-server \
+    -m ~/models/gemma-4-26B_q4_0-it.gguf \
+    -c 16384 \
+    --parallel 1 \
+    -fit off \
+    -b 2048 \
+    -ub 2048 \
+    -t 8 \
+    -n -1 \
+    -fa on \
+    -ctk q4_0 \
+    -ctv q4_0 \
+    -ngl 99 \
+    --device Vulkan0 \
+    --host 127.0.0.1 \
+    --port 44109 "$@"
+}
+
+AI_qwen3.8_27B_IQ3_S() {
+    cd ~/code/llama.cpp || return 1
+    ./build/bin/llama-server \
+    -m ~/models/Qwen3.8-27B-GSQ-RCO-IQ3_S.gguf \
+    -c 16384 \
+    --parallel 1 \
+    -fit off \
+    -b 2048 \
+    -ub 2048 \
+    -t 8 \
+    -n -1 \
+    -fa on \
+    -ctk q4_0 \
+    -ctv q4_0 \
+    -ngl 99 \
+    --device Vulkan0 \
+    --reasoning-budget 4096 \
+    --host 127.0.0.1 \
+    --port 44109 "$@"
+}

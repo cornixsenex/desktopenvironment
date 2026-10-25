@@ -10,4 +10,5 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 fi
 
 
-HISTFILESIZE=2500
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/qwe/.cache/lm-studio/bin"
